@@ -201,9 +201,10 @@ while True:
     dealer_hand.add_card(deck.deal()) 
         
     # Set up the Player's chips
-    if player_chips.total:
-        player_chips = Chips(player_chips.total)
-    else:
+    try:
+        if player_chips:
+            player_chips = Chips(player_chips.total)
+    except:
         player_chips = Chips()
     
     
@@ -266,3 +267,4 @@ while True:
     elif play_again.upper() == "N":
         print("Thank you for playing")
         break
+    
