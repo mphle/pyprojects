@@ -63,7 +63,7 @@ def table_scrape(table_num):
             except:
                 continue
         data.append(sub_data)
-    print(data)
+    #print(data)
 
     for row in data:
         del row[2:]
@@ -78,7 +78,7 @@ def table_scrape(table_num):
 
     # Converting Pandas DataFrame
     # into CSV file
-    dataFrame.to_csv(file_name)
+    dataFrame.to_csv(file_name, mode='w+')
 
 #Run through all tables
 for table_no in range(0,6):
