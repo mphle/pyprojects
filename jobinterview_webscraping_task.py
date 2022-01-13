@@ -42,10 +42,10 @@ driver.quit()
 #Convert to BS
 soup = bs4.BeautifulSoup(html,"lxml")
 
-# Get tables
+#Get tables
 table = soup.find_all('table')[1]
 
-#Table Scrape funciont
+#Table Scrape function
 def table_scrape(table_num):
 
     data = []
@@ -68,16 +68,15 @@ def table_scrape(table_num):
     for row in data:
         del row[2:]
 
-    # Storing the data into Pandas
+    #Storing the data into Pandas
     file_name = str(table.find_all("u")[table_num].getText())
     file_name = file_name.replace("\n", "")
     file_name = file_name + ".csv"
 
-    # DataFrame
+    #create DataFrame
     dataFrame = pd.DataFrame(data=data, columns=list_header)
 
-    # Converting Pandas DataFrame
-    # into CSV file
+    #Converting Pandas DataFrame into CSV file
     dataFrame.to_csv(file_name, mode='w+')
 
 #Run through all tables
