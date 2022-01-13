@@ -49,7 +49,7 @@ table = soup.find_all('table')[1]
 def table_scrape(table_num):
 
     data = []
-    list_header = [" ", "Current week"]
+    list_header = [" ", "Latest week"]
 
     # for getting the data
     HTML_data = soup.find_all("table")[1].find_all("table")[table_num].find_all("tr")[1:]
